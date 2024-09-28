@@ -1,11 +1,19 @@
-[gd_scene load_steps=3 format=3 uid="uid://bw73i4jnuxcnc"]
+[gd_scene load_steps=4 format=3 uid="uid://bw73i4jnuxcnc"]
 
 [ext_resource type="Script" path="res://node_2d.gd" id="1_58mvm"]
 [ext_resource type="Texture2D" uid="uid://b5t3df4vm8qem" path="res://icon.svg" id="2_w4o8x"]
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_nabmc"]
+size = Vector2(129, 128)
+
 [node name="Node2D" type="Node2D"]
 script = ExtResource("1_58mvm")
 
-[node name="Icon" type="Sprite2D" parent="."]
-position = Vector2(255, 140)
+[node name="CharacterBody2D" type="CharacterBody2D" parent="."]
+
+[node name="Icon" type="Sprite2D" parent="CharacterBody2D"]
 texture = ExtResource("2_w4o8x")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D"]
+position = Vector2(0.5, 0)
+shape = SubResource("RectangleShape2D_nabmc")
